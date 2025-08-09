@@ -1,6 +1,3 @@
-Here’s a **short but complete** **Inheritance** `.md` note covering all key points with examples.
-
----
 
 ````markdown
 # Inheritance in OOP
@@ -116,7 +113,5 @@ class Dog extends Animal {
 
 ```
 
----
 
-If you want, I can also prepare **a one-page OOP `.md` with Encapsulation + Inheritance + Polymorphism + Abstraction** so you have a single compact interview revision sheet. That way, you won’t need to search multiple files.
 ```
