@@ -34,7 +34,51 @@ An **ATM Machine**:
 
 | **JavaScript Example** | **Java Example** |
 |------------------------|------------------|
-| ```javascript<br>class BankAccount {<br>    #balance; // Private field<br><br>    constructor(initialBalance) {<br>        this.#balance = initialBalance;<br>    }<br><br>    getBalance() {<br>        return this.#balance;<br>    }<br><br>    deposit(amount) {<br>        if (amount > 0) {<br>            this.#balance += amount;<br>        } else {<br>            console.log("Invalid deposit amount");<br>        }<br>    }<br>}<br><br>const account = new BankAccount(1000);<br>console.log(account.getBalance()); // 1000<br>account.deposit(500);<br>console.log(account.getBalance()); // 1500<br>``` | ```java<br>class BankAccount {<br>    private double balance;<br><br>    public BankAccount(double initialBalance) {<br>        balance = initialBalance;<br>    }<br><br>    public double getBalance() {<br>        return balance;<br>    }<br><br>    public void deposit(double amount) {<br>        if (amount > 0) {<br>            balance += amount;<br>        } else {<br>            System.out.println("Invalid deposit amount");<br>        }<br>    }<br>}<br><br>public class Main {<br>    public static void main(String[] args) {<br>        BankAccount account = new BankAccount(1000);<br>        System.out.println(account.getBalance()); // 1000<br>        account.deposit(500);<br>        System.out.println(account.getBalance()); // 1500<br>    }<br>}<br>``` |
+|class BankAccount {
+    // Private field (cannot be accessed outside this class)
+    #balance;
+
+    constructor(initialBalance) {
+        this.#balance = initialBalance;
+    }
+
+    // Getter method (read-only access)
+    getBalance() {
+        return this.#balance;
+    }
+
+    // Setter method (controlled write access)
+    deposit(amount) {
+        if (amount > 0) {
+            this.#balance += amount;
+            console.log(`Deposited: ${amount}`);
+        } else {
+            console.log("Invalid deposit amount");
+        }
+    }
+
+    withdraw(amount) {
+        if (amount > 0 && amount <= this.#balance) {
+            this.#balance -= amount;
+            console.log(`Withdrawn: ${amount}`);
+        } else {
+            console.log("Invalid withdrawal amount");
+        }
+    }
+}
+
+// Usage
+const account = new BankAccount(1000);
+
+console.log(account.getBalance()); // 1000
+account.deposit(500);              // Deposited: 500
+console.log(account.getBalance()); // 1500
+account.withdraw(200);             // Withdrawn: 200
+console.log(account.getBalance()); // 1300
+
+// Direct access will throw an error
+// console.log(account.#balance); ❌ SyntaxError: Private field
+|
 
 ---
 
