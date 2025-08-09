@@ -121,7 +121,5 @@ animals.forEach(a => a.sound()); // Bark, Meow
 
 * Runtime polymorphism can be slightly slower due to dynamic method resolution.
 
-```
-
 ---
 
