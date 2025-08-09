@@ -20,70 +20,141 @@ Inheritance is an **OOP concept** where a class (**child/subclass**) acquires pr
 4. **Multiple** – A class inherits from multiple parents (not directly in Java, possible via interfaces).
 5. **Hybrid** – Combination of the above.
 
----
 
-## 4. Example (JavaScript)
+````markdown
+# Types of Inheritance in OOP
 
+## 1. Single Inheritance
+**Definition**: One child inherits from one parent.
+
+**Example (JavaScript)**:
 ```javascript
-// Parent Class
-class Animal {
-    eat() {
-        console.log("Eating...");
-    }
+class Parent {
+    show() { console.log("Parent class"); }
 }
-
-// Child Class
-class Dog extends Animal {
-    bark() {
-        console.log("Barking...");
-    }
+class Child extends Parent {
+    display() { console.log("Child class"); }
 }
-
-const dog = new Dog();
-dog.eat(); // Inherited from Animal
-dog.bark(); // Own method
+const obj = new Child();
+obj.show();   // Parent class
+obj.display(); // Child class
 ````
 
 ---
 
-## 5. Example (Java)
+## 2. Multilevel Inheritance
+
+**Definition**: A class inherits from another, which inherits from another.
+
+**Example (Java)**:
 
 ```java
-class Animal {
-    void eat() {
-        System.out.println("Eating...");
-    }
-}
+class A { void methodA() { System.out.println("A"); } }
+class B extends A { void methodB() { System.out.println("B"); } }
+class C extends B { void methodC() { System.out.println("C"); } }
 
-class Dog extends Animal {
-    void bark() {
-        System.out.println("Barking...");
-    }
-}
-
-public class Main {
+public class Test {
     public static void main(String[] args) {
-        Dog d = new Dog();
-        d.eat(); // Inherited
-        d.bark(); // Own method
+        C obj = new C();
+        obj.methodA(); // from A
+        obj.methodB(); // from B
+        obj.methodC(); // from C
     }
 }
 ```
 
 ---
 
-## 6. Method Overriding
+## 3. Hierarchical Inheritance
 
-A child class can **redefine** a method from the parent class.
+**Definition**: Multiple children inherit from the same parent.
+
+**Example (JavaScript)**:
 
 ```javascript
-class Animal {
-    speak() { console.log("Animal sound"); }
+class Parent {
+    greet() { console.log("Hello from Parent"); }
 }
+class Child1 extends Parent {
+    message() { console.log("Child1 here"); }
+}
+class Child2 extends Parent {
+    message() { console.log("Child2 here"); }
+}
+new Child1().greet(); // Hello from Parent
+new Child2().greet(); // Hello from Parent
+```
 
-class Dog extends Animal {
-    speak() { console.log("Bark"); } // Overriding
+---
+
+## 4. Multiple Inheritance
+
+**Definition**: A class inherits from multiple parents (Directly not possible in Java, but possible via interfaces; JavaScript uses mixins).
+
+**Example (Java via Interfaces)**:
+
+```java
+interface A { void methodA(); }
+interface B { void methodB(); }
+
+class C implements A, B {
+    public void methodA() { System.out.println("A"); }
+    public void methodB() { System.out.println("B"); }
 }
+```
+
+**Example (JavaScript via Mixins)**:
+
+```javascript
+let CanFly = Base => class extends Base {
+    fly() { console.log("Flying..."); }
+};
+let CanSwim = Base => class extends Base {
+    swim() { console.log("Swimming..."); }
+};
+
+class Animal {}
+class Duck extends CanFly(CanSwim(Animal)) {}
+
+const d = new Duck();
+d.fly();
+d.swim();
+```
+
+---
+
+## 5. Hybrid Inheritance
+
+**Definition**: Combination of two or more types of inheritance.
+
+**Example (Java)**:
+
+```java
+interface A { void methodA(); }
+class B { void methodB() { System.out.println("B"); } }
+class C extends B implements A {
+    public void methodA() { System.out.println("A"); }
+}
+class D extends C {
+    void methodD() { System.out.println("D"); }
+}
+```
+
+* Here:
+
+  * `C` inherits from `B` (Single)
+  * `C` implements `A` (Multiple via interface)
+  * `D` inherits from `C` (Multilevel)
+
+---
+
+**Key Notes**:
+
+* **JavaScript** supports single inheritance via `extends` and multiple inheritance via **mixins**.
+* **Java** supports multiple inheritance **only** through interfaces, not classes.
+* Hybrid inheritance is common in real-world systems but can lead to **diamond problem**.
+
+
 ```
 
 ---
