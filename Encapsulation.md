@@ -32,9 +32,8 @@ An **ATM Machine**:
 
 ## 5. JavaScript vs Java Example
 
-| **JavaScript Example** | **Java Example** |
-|------------------------|------------------|
-|class BankAccount {
+**JavaScript Example** 
+class BankAccount {
     // Private field (cannot be accessed outside this class)
     #balance;
 
