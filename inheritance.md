@@ -1,5 +1,4 @@
-
-````markdown
+---
 # Inheritance in OOP
 
 ## 1. Definition
@@ -114,4 +113,3 @@ class Dog extends Animal {
 ```
 
 
-```
