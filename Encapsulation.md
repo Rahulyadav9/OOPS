@@ -1,9 +1,3 @@
-Got it ✅
-Here’s a **detailed Encapsulation note** in **Markdown (.md) format**, with definitions, purposes, benefits, JavaScript & Java examples in two columns, and a comparison table — perfect for documentation or interview prep.
-
----
-
-````markdown
 # Encapsulation in Object-Oriented Programming
 
 ## 1. Definition
@@ -75,8 +69,3 @@ Encapsulation is like **putting your valuables in a safe**:
 - You provide a **key (methods)** to interact with its contents.
 - Outsiders **cannot touch** the contents directly.
 
-````
-
----
-
-If you want, I can now **add a diagram** in this `.md` so that the concept is also visually explained, which is great for GitHub documentation and interviews. Would you like me to add that?
