@@ -1,7 +1,6 @@
 
 ---
 
-````
 # Polymorphism in OOP
 
 ## 1. Definition
@@ -126,5 +125,3 @@ animals.forEach(a => a.sound()); // Bark, Meow
 
 ---
 
-If you want, I can also make a **comparison table of polymorphism vs overloading vs overriding** so you can recall it instantly in interviews. Would you like me to prepare that?
-```
